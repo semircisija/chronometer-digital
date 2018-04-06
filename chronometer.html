@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chronometer js</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+    body {
+        background-color: #3173C6;
+    }
+
+    #container {
+
+        position: absolute;
+        margin: 300px 55% 0 35%;
+        width: 320px;
+        height: 100px;
+    }
+
+    .watch {
+        float: left;
+        font-size: 30px;
+        padding: 0 2px;
+        color: #fff;
+        margin: 0 10px 0 0px;
+    }
+
+    .Button {
+        outline: none;
+        border: 1px solid #363431;
+        color: white;
+        width: 75px;
+        height: 40px;
+        text-shadow: 0px -1px 1px black;
+        font-size: 12px;
+        margin: 0 5px 0 10px;
+        border-radius: 5px;
+        font-family: Helvetica;
+        cursor: pointer;
+        background-image: linear-gradient(#ff7733, #993300);
+    }
+    @media (min-width: 320px) {#container{
+     width:60% ;
+    }
+
+    .Button:active {
+        background-image: linear-gradient(#2c6f05, #3aad02);
+    }
+
+    .Button:hover {
+        box-shadow: 0px 0px 14px #ffbb99;
+    }
+
+    </style>
+    <!--WATCH-->
+    <script>
+    var milliseconds = 0;
+    var seconds = 0;
+    var minutes = 0;
+    var hours = 0;
+
+    function start() {
+        control = setInterval(chronometer, 10);
+        document.getElementById("start").disabled = true;
+        document.getElementById("stop").disabled = false;
+        document.getElementById("continue").disabled = true;
+        document.getElementById("restart").disabled = false;
+    }
+
+    function stop() {
+        clearInterval(control);
+        document.getElementById("stop").disabled = true;
+        document.getElementById("continue").disabled = false;
+    }
+
+    function restart() {
+        clearInterval(control);
+        milliseconds = 0;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        Milliseconds.innerHTML = ":00";
+        Seconds.innerHTML = ":00";
+        Minutes.innerHTML = ":00";
+        Hours.innerHTML = "00";
+        document.getElementById("start").disabled = false;
+        document.getElementById("stop").disabled = true;
+        document.getElementById("continue").disabled = true;
+        document.getElementById("restart").disabled = true;
+    }
+
+    function chronometer() {
+        if (milliseconds < 99) {
+            milliseconds++;
+            if (milliseconds < 10) { milliseconds = "0" + milliseconds }
+            Milliseconds.innerHTML = ":" + milliseconds;
+        }
+        if (milliseconds == 99) {
+            milliseconds = -1;
+        }
+        if (milliseconds == 0) {
+            seconds++;
+            if (seconds < 10) { seconds = "0" + seconds }
+            Seconds.innerHTML = ":" + seconds;
+        }
+        if (seconds == 59) {
+            seconds = -1;
+        }
+        if ((milliseconds == 0) && (seconds == 0)) {
+            minutes++;
+            if (minutes < 10) { minutes = "0" + minutes }
+            Minutes.innerHTML = ":" + minutes;
+        }
+        if (minutes == 59) {
+            minutes = -1;
+        }
+        if ((milliseconds == 0) && (seconds == 0) && (minutes == 0)) {
+            hours++;
+            if (hours < 10) { hours = "0" + hours }
+            Hours.innerHTML = hours;
+        }
+    }
+    </script>
+    <!--WATCH-->
+    <script>
+    var milliseconds = 0;
+    var seconds = 0;
+    var minutes = 0;
+    var hours = 0;
+
+    function start() {
+        control = setInterval(chronometer, 10);
+        document.getElementById("start").disabled = true;
+        document.getElementById("stop").disabled = false;
+        document.getElementById("continue").disabled = true;
+        document.getElementById("restart").disabled = false;
+    }
+
+    function stop() {
+        clearInterval(control);
+        document.getElementById("stop").disabled = true;
+        document.getElementById("continue").disabled = false;
+    }
+
+    function restart() {
+        clearInterval(control);
+        milliseconds = 0;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        Milliseconds.innerHTML = ":00";
+        Seconds.innerHTML = ":00";
+        Minutes.innerHTML = ":00";
+        Hours.innerHTML = "00";
+        document.getElementById("start").disabled = false;
+        document.getElementById("stop").disabled = true;
+        document.getElementById("continue").disabled = true;
+        document.getElementById("restart").disabled = true;
+    }
+
+    function chronometer() {
+        if (milliseconds < 99) {
+            milliseconds++;
+            if (milliseconds < 10) { milliseconds = "0" + milliseconds }
+            Milliseconds.innerHTML = ":" + milliseconds;
+        }
+        if (milliseconds == 99) {
+            milliseconds = -1;
+        }
+        if (milliseconds == 0) {
+            seconds++;
+            if (seconds < 10) { seconds = "0" + seconds }
+            Seconds.innerHTML = ":" + seconds;
+        }
+        if (seconds == 59) {
+            seconds = -1;
+        }
+        if ((milliseconds == 0) && (seconds == 0)) {
+            minutes++;
+            if (minutes < 10) { minutes = "0" + minutes }
+            Minutes.innerHTML = ":" + minutes;
+        }
+        if (minutes == 59) {
+            minutes = -1;
+        }
+        if ((milliseconds == 0) && (seconds == 0) && (minutes == 0)) {
+            hours++;
+            if (hours < 10) { hours = "0" + hours }
+            Hours.innerHTML = hours;
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="row">
+            <div class="">
+                <div class="watch" id="Hours">00</div>
+                <div class="watch" id="Minutes">:00</div>
+                <div class="watch" id="Seconds">:00</div>
+                <div class="watch" id="Milliseconds">:00</div>
+                <input type="button" class="Button" id="start" value="Start &#9658;" onclick="start();">
+                <input type="button" class="Button" id="stop" value="Stop &#8718;" onclick="stop();" disabled>
+                <input type="button" class="Button" id="continue" value="Resume &#8634;" onclick="start();" disabled>
+                <input type="button" class="Button" id="restart" value="Reset &#8635;" onclick="restart();" disabled>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
